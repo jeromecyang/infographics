@@ -5,12 +5,10 @@
       html, body {
         background-color: #000;
         margin: 0;
-        /*height: 100%;*/
       }
       #background {
-        background-image:url('https://lh4.googleusercontent.com/-LzF9Utv4Mvk/U9CVG5OY8fI/AAAAAAAAIWk/zSJbzfW2DAM/w1024-h575-no/IMAG2942.jpg');
-        height: 400px;
-        margin: 40px 0 0 0;
+        background-position:center; 
+        margin-top: 50px;
       }
       #content {
         position: absolute;
@@ -19,7 +17,7 @@
         max-width: 320px;
         background-color: rgba(0,0,0,0.75);
         margin-right: 10px;
-        margin-top: 50px;
+        margin-top: 60px;
         padding: 15px;
       }
       #date {
@@ -39,6 +37,21 @@
         color: #fff;
       }
     </style>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        layout();
+        $(window).resize(layout);
+        
+        function layout(){
+        var width = $(window).width();
+          var height = $(window).height();
+          $("#background")
+            .css("background-image","url('https://lh4.googleusercontent.com/-LzF9Utv4Mvk/U9CVG5OY8fI/AAAAAAAAIWk/zSJbzfW2DAM/w" + width + "-h" + Math.round(width*9/16) + "-no/IMAG2942.jpg')")
+            .css("height",height-100+"px");
+        };
+      });
+    </script>
   </head>
   <body>
     <div id="background"></div>
